@@ -1,0 +1,3 @@
+D:/projects/LockBox/cmake-build-debug/CMakeFiles/LockBox.dir
+D:/projects/LockBox/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/projects/LockBox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
