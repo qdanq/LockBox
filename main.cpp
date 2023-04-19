@@ -12,20 +12,21 @@ int main() {
     cin >> path;
     path += "\\pass.txt";
 
+    cout << "\nCreate a password: ";
+    cin >> password;
 
     ofstream fout;
     fout.open(path);
     if (!fout.is_open()) {
-        printf("File open error, check correctness of path.\n");
+        cout << "File open error, check correctness of path.\n";
         main();
     }
+    fout << password;
+    fout.close();
 
-
-    /*cout << "\nCreate a password: ";
-    cin >> password;
-    cout << "\nEnter password: ";
+    /*cout << "\nEnter password: ";
     cin >> prompt_password;
     if (prompt_password == password) {
         cout << "+";
-     } */
+     }*/
 }
