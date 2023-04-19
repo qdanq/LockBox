@@ -9,6 +9,8 @@
 D:/projects/LockBox/main.cpp
 iostream
 -
+cstdio
+-
 fstream
 D:/projects/LockBox/fstream
 

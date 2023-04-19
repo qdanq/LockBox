@@ -1,19 +1,24 @@
 #include <iostream>
+#include <cstdio>
 #include "fstream"
 
 using namespace std;
 
 int main() {
-    string password, prompt_password, path;
-    cout << "Path to directory to protect: ";
+// TODO: сделать текстовый файл невидимым, сделать проверку на присутсвие текстового файла, если нет - то придумать пароль
+    string password, prompt_password;
+    string path;
+    cout << "Path to directory to protect:\n";
     cin >> path;
     path += "\\pass.txt";
-
-    cout << path;
 
 
     ofstream fout;
     fout.open(path);
+    if (!fout.is_open()) {
+        printf("File open error, check correctness of path.\n");
+        main();
+    }
 
 
     /*cout << "\nCreate a password: ";
