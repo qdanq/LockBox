@@ -17,7 +17,15 @@ int main() {
     fstream password_file;
     password_file.open(path);
     if (password_file) {
-        cout << "file exists";
+        cout << "folder is protected, type password to continue\n";
+        cin >> prompt_password;
+        password_file >> password;
+        if (prompt_password == password) {
+            cout << "Access granted";
+        } else {
+            cout << "Access denied";
+        }
+
     } else {
         password_file.open(path, fstream::app);
         cout << "\nCreate a password: ";
@@ -27,11 +35,4 @@ int main() {
     }
 
 
-
-
-    /*cout << "\nEnter password: ";
-    cin >> prompt_password;
-    if (prompt_password == password) {
-        cout << "+";
-     }*/
 }
