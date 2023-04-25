@@ -6,19 +6,20 @@ using namespace std;
 //  создать псевдопапку с програмой запроса пароля + разблокировка
 
 
-string execute_folder_name(string folder_dir) {
-    auto n = folder_dir.find("\\pass.txt");
-    folder_dir.erase(n, 9); // 9 is "\pass.txt" length
-
+string exclude_folder(string folder_dir) {
     size_t found = folder_dir.find_last_of("\\");
 
-    return folder_dir.substr(found + 1); // + 1 to remove "\" char
-
+    return folder_dir.substr(0, ++found); // increment found for include "\"
 }
 
 int secure(string dir, string password) {
-    string folder = execute_folder_name(dir);
+    auto n = dir.find("\\pass.txt");
+    dir.erase(n, 9); // 9 is "pass.txt" length
 
+    string dir_path_without_folder = exclude_folder(dir) + ".{20D04FE0-3AEA-1069-A2D8-08002B30309D}";
+    cout << dir_path_without_folder;
+
+    rename(dir.c_str(), dir_path_without_folder.c_str());
 
     return 0;
 }
@@ -27,7 +28,9 @@ int main() {
 // TODO: + чекни будет ли проблема с меню быстрого доступа
 // TODO: рассмотри целесообразность использовать класс и его методы вместо функций.
 // TODO: разберись с смейком, сделай нормальную структуру проекта, напиши редми и меняй висибилити
-// TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях и папках в БД.
+// TODO: реализовать возможность паролить несколько директорий в одном пути запоминая на что изменяется
+//  та или иная папка(предположительно добавлять цифру перед точкой)
+// TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях в БД.
 
     string password, prompt_password, path;
     cout << "Path to folder to protect:\n";
