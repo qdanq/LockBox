@@ -15,22 +15,19 @@ int main() {
 
 
     fstream password_file;
-    password_file.exceptions(fstream::badbit | fstream::failbit);
-    try {
-    password_file.open(path, fstream::in | fstream::out | fstream::app);
+    password_file.open(path);
+    if (password_file) {
+        cout << "file exists";
+    } else {
+        password_file.open(path, fstream::app);
+        cout << "\nCreate a password: ";
+        cin >> password;
+        password_file << password;
+        password_file.close();
     }
 
-    catch (const exception &ex) {
-        cout << ex.what();
-        cout << "\nFile open error, check correctness of path.\n";
-        main();
-    }
 
 
-    cout << "\nCreate a password: ";
-    cin >> password;
-    password_file << password;
-    password_file.close();
 
     /*cout << "\nEnter password: ";
     cin >> prompt_password;
