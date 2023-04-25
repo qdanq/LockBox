@@ -2,12 +2,30 @@
 #include "fstream"
 
 using namespace std;
+// TODO: блок механизм: прятать папку, переименовать на 20D04FE0-3AEA-1069-A2D8-08002B30309D,
+//  создать псевдопапку с програмой запроса пароля + разблокировка
 
+
+string execute_folder_name(string dir) {
+    auto n = dir.find("\\pass.txt");
+    dir.erase(n, 9); // 9 is "\pass.txt" length
+    return dir;
+
+}
+
+int secure(string dir, string password) {
+    dir = execute_folder_name(dir);
+    cout << dir;
+
+    return 0;
+}
 
 int main() {
-// TODO: сделать проверку на присутсвие текстового файла, если нет - то придумать пароль
-// TODO: блок механизм
+// TODO: + чекни будет ли проблема с меню быстрого доступа
+// TODO: рассмотри целесообразность использовать класс и его методы вместо функций.
 // TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях и папках в БД.
+// TODO: разберись с смейком, сделай нормальную структуру проекта, напиши редми и меняй висибилити
+
     string password, prompt_password, path;
     cout << "Path to folder to protect:\n";
     cin >> path;
@@ -32,6 +50,7 @@ int main() {
         cin >> password;
         password_file << password;
         password_file.close();
+        secure(path, password);
     }
 
 
