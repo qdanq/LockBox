@@ -9,13 +9,15 @@ using namespace std;
 string execute_folder_name(string dir) {
     auto n = dir.find("\\pass.txt");
     dir.erase(n, 9); // 9 is "\pass.txt" length
-    return dir;
+
+    size_t found = dir.find_last_of("\\");
+
+    return dir.substr(found + 1); // + 1 to remove "\" char
 
 }
 
 int secure(string dir, string password) {
     dir = execute_folder_name(dir);
-    cout << dir;
 
     return 0;
 }
@@ -23,8 +25,8 @@ int secure(string dir, string password) {
 int main() {
 // TODO: + чекни будет ли проблема с меню быстрого доступа
 // TODO: рассмотри целесообразность использовать класс и его методы вместо функций.
-// TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях и папках в БД.
 // TODO: разберись с смейком, сделай нормальную структуру проекта, напиши редми и меняй висибилити
+// TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях и папках в БД.
 
     string password, prompt_password, path;
     cout << "Path to folder to protect:\n";
