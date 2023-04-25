@@ -6,18 +6,19 @@ using namespace std;
 //  создать псевдопапку с програмой запроса пароля + разблокировка
 
 
-string execute_folder_name(string dir) {
-    auto n = dir.find("\\pass.txt");
-    dir.erase(n, 9); // 9 is "\pass.txt" length
+string execute_folder_name(string folder_dir) {
+    auto n = folder_dir.find("\\pass.txt");
+    folder_dir.erase(n, 9); // 9 is "\pass.txt" length
 
-    size_t found = dir.find_last_of("\\");
+    size_t found = folder_dir.find_last_of("\\");
 
-    return dir.substr(found + 1); // + 1 to remove "\" char
+    return folder_dir.substr(found + 1); // + 1 to remove "\" char
 
 }
 
 int secure(string dir, string password) {
-    dir = execute_folder_name(dir);
+    string folder = execute_folder_name(dir);
+
 
     return 0;
 }
