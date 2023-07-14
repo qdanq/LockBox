@@ -20,18 +20,25 @@ public:
 
 
 int main() {
-    Folder dsa {"D:\\dsa", "dsa", "123", true};
+    Folder tempFolder{"D:\\dsa", "dsa", "123", true};
 
-    string path, password;
-    cout << "Input path to folder:" << endl;
-    cin >> path;
-    if (dsa.exists) {
-        cout << "This folder secured, enter password to get access.";
-        cin >> password;
-        if (dsa.folderPassword == password) {
-            cout << "+";
-        } else {
-            cout << "-";
+    string path, folder, password;
+
+    /* cout << "Input path to folder:" << endl;
+     cin >> path;
+     folder = path.substr(path.find_last_of('\\') + 1, -1);  '+ 1' for get rid of last '\' before folder name*/
+
+
+    if (tempFolder.exists) {
+        cout << "This folder secured, enter password to get access:" << endl;
+        while (tempFolder.folderPassword != password) {
+            cin >> password;
+            if (tempFolder.folderPassword == password) {
+                cout << "Access granted" << endl;
+            } else {
+                cout << "Access denied" << endl;
+            }
+
         }
     }
 
