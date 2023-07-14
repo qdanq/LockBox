@@ -3,9 +3,24 @@
 
 using namespace std;
 // TODO: блок механизм: прятать папку, переименовать на 20D04FE0-3AEA-1069-A2D8-08002B30309D,
-//  создать псевдопапку с програмой запроса пароля + разблокировка
+// TODO:  чекни будет ли проблема с меню быстрого доступа
+// TODO: реализовать возможность паролить несколько директорий в одном пути запоминая на что изменяется
+
+class Folder {
+public:
+    string folder;
+    string password;
+};
 
 
+int main() {
+    return 0;
+}
+
+
+
+
+/*
 string exclude_folder(string folder_dir) {
     size_t found = folder_dir.find_last_of("\\");
 
@@ -25,17 +40,11 @@ int secure(string dir, string password) {
 }
 
 int main() {
-// TODO: + чекни будет ли проблема с меню быстрого доступа
-// TODO: рассмотри целесообразность использовать класс и его методы вместо функций.
-// TODO: разберись с смейком, сделай нормальную структуру проекта, напиши редми и меняй висибилити
-// TODO: реализовать возможность паролить несколько директорий в одном пути запоминая на что изменяется
 //  та или иная папка(предположительно добавлять цифру перед точкой)
-// TODO: сделать тхт файл невидимым, в перспективе сохранять все данные о паролях в БД.
 
     string password, prompt_password, path;
     cout << "Path to folder to protect:\n";
     cin >> path;
-    path += "\\pass.txt"; // For searching/creating file with password
 
 
     fstream password_file;
@@ -60,4 +69,4 @@ int main() {
     }
 
 
-}
+}*/
