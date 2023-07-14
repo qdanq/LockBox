@@ -37,6 +37,21 @@ public:
         return folderExists;
     }
 
+    void SetFolderPath(string path) {
+        folderPath = path;
+    }
+
+    void SetFolderName(string name) {
+        folderName = name;
+    }
+
+    void SetFolderPassword(string password) {
+        folderPassword = password;
+    }
+
+    void SetFolderExists(bool exists) {
+        folderExists = exists;
+    }
 };
 
 
