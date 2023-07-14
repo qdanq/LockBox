@@ -7,8 +7,10 @@ using namespace std;
 //  сохраняем название папки, подключи БД, после разборки с БД, разберись как создавать экземпляры для каждой папки,
 //  сохранять их и тп
 
-
 // TODO: блок механизм: прятать папку, переименовать на "название папки"{.20D04FE0-3AEA-1069-A2D8-08002B30309D}
+// TODO: блять, а как разпереиминовать эту шляпу с названием папки, разберись, там вроде хуйня с типом файла, мб её меняй
+// TODO: мож клас засунуть в отдельный файл? а то он дохуя громоздкий
+// TODO: + не факт что сеттеры нужны будут, рассмотри их удаление потом.
 
 
 class Folder {
@@ -20,6 +22,13 @@ private:
     bool folderExists;
 
 public:
+
+    Folder(string path, string name, string password, bool exists) {
+        folderPath = path;
+        folderName = name;
+        folderPassword = password;
+        folderExists = exists;
+    }
 
     string GetFolderPath() {
         return folderPath;
@@ -52,11 +61,12 @@ public:
     void SetFolderExists(bool exists) {
         folderExists = exists;
     }
+
 };
 
 
 int main() {
-    Folder tempFolder;
+    Folder tempFolder();
 
     string path, folder, password;
 
