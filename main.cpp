@@ -1,19 +1,41 @@
 #include <iostream>
-#include "fstream"
 
 using namespace std;
-// TODO: блок механизм: прятать папку, переименовать на 20D04FE0-3AEA-1069-A2D8-08002B30309D,
-// TODO:  чекни будет ли проблема с меню быстрого доступа
-// TODO: реализовать возможность паролить несколько директорий в одном пути запоминая на что изменяется
+
+// TODO: ОСНОВНОЙ ПРИНЦИП РАБОТЫ. Вводим путь, проверяем существует ли он, не запаролен ли он,
+//  если запаролен, то проверка на пароль. Если нет то используем блок механизм, накидываем атрибут,
+//  сохраняем название папки, подключи БД.
+
+
+// TODO: блок механизм: прятать папку, переименовать на "название папки"{.20D04FE0-3AEA-1069-A2D8-08002B30309D}
+
 
 class Folder {
 public:
-    string folder;
-    string password;
+    string folderPath;
+    string folderName;
+    string folderPassword;
+    bool exists;
 };
 
 
 int main() {
+    Folder dsa {"D:\\dsa", "dsa", "123", true};
+
+    string path, password;
+    cout << "Input path to folder:" << endl;
+    cin >> path;
+    if (dsa.exists) {
+        cout << "This folder secured, enter password to get access.";
+        cin >> password;
+        if (dsa.folderPassword == password) {
+            cout << "+";
+        } else {
+            cout << "-";
+        }
+    }
+
+
     return 0;
 }
 
@@ -40,7 +62,6 @@ int secure(string dir, string password) {
 }
 
 int main() {
-//  та или иная папка(предположительно добавлять цифру перед точкой)
 
     string password, prompt_password, path;
     cout << "Path to folder to protect:\n";
