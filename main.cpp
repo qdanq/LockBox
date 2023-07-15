@@ -4,81 +4,42 @@ using namespace std;
 
 // TODO: ОСНОВНОЙ ПРИНЦИП РАБОТЫ. Вводим путь, проверяем существует ли он, не запаролен ли он,
 //  если запаролен, то проверка на пароль. Если нет то используем блок механизм, накидываем атрибут,
-//  сохраняем название папки, подключи БД, после разборки с БД, разберись как создавать экземпляры для каждой папки,
-//  сохранять их и тп
+//  сохраняем название папки, подключи БД.
 
 
 // TODO: блок механизм: прятать папку, переименовать на "название папки"{.20D04FE0-3AEA-1069-A2D8-08002B30309D}
 
 
 class Folder {
-
-private:
+public:
     string folderPath;
     string folderName;
     string folderPassword;
-    bool folderExists;
-
-public:
-
-    string GetFolderPath() {
-        return folderPath;
-    }
-
-    string GetFolderName() {
-        return folderName;
-    }
-
-    string GetFolderPassword() {
-        return folderPassword;
-    }
-
-    bool GetFolderExists() {
-        return folderExists;
-    }
-
-    void SetFolderPath(string path) {
-        folderPath = path;
-    }
-
-    void SetFolderName(string name) {
-        folderName = name;
-    }
-
-    void SetFolderPassword(string password) {
-        folderPassword = password;
-    }
-
-    void SetFolderExists(bool exists) {
-        folderExists = exists;
-    }
+    bool exists;
 };
 
 
 int main() {
-    Folder tempFolder;
+    Folder tempFolder{"D:\\dsa", "dsa", "123", true};
 
     string path, folder, password;
 
-    cout << "Input path to folder:" << endl;
-    cin >> path;
-    folder = path.substr(path.find_last_of('\\') + 1, -1); // '+ 1' for get rid of last '\' before folder name*/
+    /* cout << "Input path to folder:" << endl;
+     cin >> path;
+     folder = path.substr(path.find_last_of('\\') + 1, -1);  '+ 1' for get rid of last '\' before folder name*/
 
 
-    if (tempFolder.GetFolderExists()) {
+    if (tempFolder.exists) {
         cout << "This folder secured, enter password to get access:" << endl;
-        while (tempFolder.GetFolderPassword() != password) {
+        while (tempFolder.folderPassword != password) {
             cin >> password;
-            if (tempFolder.GetFolderPassword() == password) {
+            if (tempFolder.folderPassword == password) {
                 cout << "Access granted" << endl;
             } else {
                 cout << "Access denied" << endl;
             }
 
         }
-    } else {
-        cout << "Create a password for folder: " << endl;
-        cin >> password;
     }
 
 
