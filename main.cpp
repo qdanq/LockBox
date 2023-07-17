@@ -1,5 +1,3 @@
-#include <iostream>
-#include <fstream>
 #include "folder.cpp"
 
 using namespace std;

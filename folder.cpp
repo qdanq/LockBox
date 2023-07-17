@@ -1,7 +1,7 @@
 //
 // Created by 38099 on 17.07.2023.
 //
-#include <iostream>
+#include "main.h"
 
 using namespace std;
 
