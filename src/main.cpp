@@ -14,7 +14,8 @@ int main() {
 
     cout << "Input folder path:" << endl;
     cin >> folderPath;
-    folderName = folderPath.substr(folderPath.find_last_of('\\') + 1, -1); // '+ 1' for get rid of last '\' before folder name
+    folderName = folderPath.substr(folderPath.find_last_of('\\') + 1,
+                                   -1); // '+ 1' for get rid of last '\' before folder name
 
 
     /*if (tempFolder.exists) {
@@ -34,11 +35,13 @@ int main() {
     cout << "Folder is unsecured, type password to secure the folder.";
     cin >> folderPassword;
 
-    Folder secureDir{5, folderPath, folderName, folderPassword};
-
+    Folder secureDir{5, folderPath, folderName, folderPassword}; // TODO: dynamic id
+    cout << secureDir.path;
 
     Folder::lockFolder(secureDir.path);
 
+    ofstream fout;
+    fout.open("..\\lock_folders.csv");  // TODO: Set file attribute
 
     return 0;
 }

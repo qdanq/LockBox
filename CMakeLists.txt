@@ -4,4 +4,4 @@ project(LockBox)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(LockBox
-        main.cpp folder.cpp main.h)
+        src/main.cpp src/folder.cpp src/main.h)
