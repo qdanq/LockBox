@@ -18,6 +18,9 @@ public:
         const char * charPath = path.c_str();
         const char * charNewPath = newPath.c_str();
         rename(charPath, charNewPath);
+
+        DWORD attributes = FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM;
+        SetFileAttributesA(charNewPath, attributes);
     }
 };
 
