@@ -10,14 +10,14 @@ using namespace std;
 int main() {
     Folder tempFolder{};
 
-    string folder, password, path;
+    string folderName, folderPassword, folderPath;
 
     cout << "Input folder path:" << endl;
-    cin >> path;
-    folder = path.substr(path.find_last_of('\\') + 1, -1); // '+ 1' for get rid of last '\' before folder name
+    cin >> folderPath;
+    folderName = folderPath.substr(folderPath.find_last_of('\\') + 1, -1); // '+ 1' for get rid of last '\' before folder name
 
 
-    if (tempFolder.exists) {
+    /*if (tempFolder.exists) {
         cout << "This folder secured, enter password to get access:" << endl;
         while (tempFolder.folderPassword != password) {
             cin >> password;
@@ -29,9 +29,15 @@ int main() {
             }
 
         }
-    }
+    }*/
 
-    Folder::lockFolder(path);
+    cout << "Folder is unsecured, type password to secure the folder.";
+    cin >> folderPassword;
+
+    Folder secureDir{5, folderPath, folderName, folderPassword};
+
+
+    Folder::lockFolder(secureDir.path);
 
 
     return 0;
