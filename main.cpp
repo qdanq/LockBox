@@ -19,7 +19,7 @@ using namespace std;
 int main() {
     Folder tempFolder{};
 
-    string folder, password, path; // поменяй местами с класом, а то некрасиво что глобалки короткие а локалки класса длинные
+    string folder, password, path;
 
     cout << "Input folder path:" << endl;
     cin >> path;
@@ -39,12 +39,8 @@ int main() {
         }
     }
 
-    string newPath = path + ".{20D04FE0-3AEA-1069-A2D8-08002B30309D}";
+    Folder::lockFolder(path);
 
-    const char * charPath = path.c_str();
-    const char * charNewPath = newPath.c_str();
-
-    rename(charPath, charNewPath);
 
     return 0;
 }
