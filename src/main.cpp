@@ -36,7 +36,15 @@ int main() {
     cout << "Folder is unsecured, type password to secure the folder.";
     cin >> folderPassword;
 
+    int id;
     ifstream folderid;
+    folderid.open("..\\lock_folders.csv");
+    if (!folderid.is_open()) {              // TODO: try catch
+        id = 1;
+    } else {
+
+    }
+    folderid.close();
 
     Folder secureDir{1, folderName, folderPath, folderPassword}; // TODO: dynamic id
     cout << secureDir.path;
@@ -47,7 +55,7 @@ int main() {
 
 
     if (!foldersdb.is_open()) {
-        cout << "ERROR. Something went wrong";
+        cout << "ERROR. Something went wrong";   // TODO: try catch
         return 0;
     }
 
