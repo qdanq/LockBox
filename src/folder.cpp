@@ -8,8 +8,8 @@ class Folder {
 
 public:
     int id;
-    string path;
     string name;
+    string path;
     string password;
 
     static void lockFolder(const string &path) {

@@ -36,12 +36,14 @@ int main() {
     cout << "Folder is unsecured, type password to secure the folder.";
     cin >> folderPassword;
 
-    Folder secureDir{1, folderPath, folderName, folderPassword}; // TODO: dynamic id
+
+
+    Folder secureDir{1, folderName, folderPath, folderPassword}; // TODO: dynamic id
     cout << secureDir.path;
 
     ofstream fout;
-    fout.open("..\\lock_folders.csv");  // TODO: Set file attribute
-    fout << secureDir.id << "," << secureDir.path << "," << secureDir.name << "," << secureDir.password;
+    fout.open("..\\lock_folders.csv", ofstream::app);  // TODO: Set file attribute
+    fout << secureDir.id << "," << secureDir.path << "," << secureDir.name << "," << secureDir.password << "\n";
 
 
     if (!fout.is_open()) {
