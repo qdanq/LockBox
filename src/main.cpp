@@ -34,7 +34,7 @@ int main() {
     cout << "Folder is unsecured, type password to secure the folder.";
     cin >> folderPassword;
 
-    Folder secureDir{5, folderPath, folderName, folderPassword}; // TODO: dynamic id
+    Folder secureDir{1, folderPath, folderName, folderPassword}; // TODO: dynamic id
     cout << secureDir.path;
 
     ofstream fout;
