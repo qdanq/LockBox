@@ -7,7 +7,7 @@ using namespace std;
 
 // TODO: блок механизм: прятать папку, переименовать на "название папки".{20D04FE0-3AEA-1069-A2D8-08002B30309D}
 
-// TODO: передлай стринги в чары, походу из за них проблема что папки в названии которых есть пробел кетчат траблы.
+// TODO: исправь ошибку при пробеле в названии папки
 
 int main() {
     Folder tempFolder{};
@@ -36,17 +36,17 @@ int main() {
     cout << "Folder is unsecured, type password to secure the folder.";
     cin >> folderPassword;
 
-
+    ifstream folderid;
 
     Folder secureDir{1, folderName, folderPath, folderPassword}; // TODO: dynamic id
     cout << secureDir.path;
 
-    ofstream fout;
-    fout.open("..\\lock_folders.csv", ofstream::app);  // TODO: Set file attribute
-    fout << secureDir.id << "," << secureDir.path << "," << secureDir.name << "," << secureDir.password << "\n";
+    ofstream foldersdb;
+    foldersdb.open("..\\lock_folders.csv", ofstream::app);  // TODO: Set file attribute
+    foldersdb << secureDir.id << "," << secureDir.path << "," << secureDir.name << "," << secureDir.password << "\n";
 
 
-    if (!fout.is_open()) {
+    if (!foldersdb.is_open()) {
         cout << "ERROR. Something went wrong";
         return 0;
     }
